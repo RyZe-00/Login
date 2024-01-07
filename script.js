@@ -22,26 +22,56 @@ window.fbAsyncInit = function() {
  
 FB.getLoginStatus(function(response) {
   statusChangeCallback(response);
+  if (response.status === 'connected') {
+    console.log(response.authResponse.accessToken);
+  }
 });
 
 
 function checkLoginState() {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
+    if (response.status === 'connected') {
+      console.log(response.authResponse.accessToken);
+    }
   });
 }
 
 function customFacebookLogin() {
   FB.login(function(response) {
     if (response.authResponse) {
-      checkLoginState();
-    } else {
-      console.log('Inicio de sesión con Facebook cancelado.');
-    }
-  }, { scope: 'public_profile,email' });
+         console.log('Bienvenido!  Gracias por tu informacion.... ');
+         FB.api('/me', {fields: 'name, email'}, function(response) {
+          alert("Tu nombre es, " + response.name + ". y tu email es " + response.email);
+         });
+    } else { 
+         console.log('Inicio de Sesion Cancelado'); }
+  });
 }
+
+FB.api('/me', function(response) {
+  console.log(JSON.stringify(response));
+});
+
 
 
 //GOOGLE
+function onSuccess(googleUser) {
+  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+}
 
+function onFailure(error) {
+  console.log(error);
+}
 
+function renderButton() {
+  gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 300,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFailure
+  });
+}

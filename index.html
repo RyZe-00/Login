@@ -8,9 +8,12 @@
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://accounts.google.com/gsi/client" async></script>
-    <meta name="google-signin-client_id" content="1000678377123-ca5p4oe2epfbajoqc9ik2jvv6gfcb2t4.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="156922708305-2s4kunvt2aatctbfkpt00pgliqpojkuh.apps.googleusercontent.com">
+    
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
     <script src="script.js"></script>
+    
 </head>
 <body>
     <div class="Inicio-de-sesion">
@@ -43,25 +46,22 @@
             <p class="O">O</p>
         </div>
         <div class="inicio-social">
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+            <div id="my-signin2"></div>
+            
             <button class="input-facebook" onclick="customFacebookLogin()">
                 <img src="facebook.png" alt="">
-            </button>            
+                <div id="profile"></div>
+            </button>
+
+
         </div>
+        
         <div id="signinDiv"></div>
         <div class="iniciar-sesion">
-            <p>No tienen una cuenta? <a href="#">Crear Cuenta</a></p>
+            <p>No tienes una cuenta? <a href="#">Crear Cuenta</a></p>
         </div>
-        <script>
-            function onSignIn(googleUser) {
-                var profile = googleUser.getBasicProfile();
-                console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-                console.log('Name: ' + profile.getName());
-                console.log('Image URL: ' + profile.getImageUrl());
-                console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-                console.log(id_token);    
-            }
-        </script>
+        
     </div>
 </body>
 </html>

@@ -158,36 +158,6 @@ button{
     cursor: pointer;
 }
 
-.input-google{
-    width: 100%;
-    height: 50px;
-    padding: 0 30px;
-    background: #FFF;
-    border: 1px solid #ccc;
-}
-
-.input-google img{
-    width: 25px;
-}
-
-.input-google p{
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    width: 90%;
-}
-
-.input-twiter{
-    justify-content: center;
-    width: 70px;
-    height: 50px;
-    background: #FFF;
-    border: 1px solid #ccc;
-}
-
-.input-twiter img{
-    width: 30px;
-}
-
 .input-facebook{
     justify-content: center;
     width: 70px;
@@ -200,8 +170,6 @@ button{
     width: 30px;
 }
 
-.input-google:hover,
-.input-twiter:hover,
 .input-submit:hover{
     opacity: 0.9;
 }
