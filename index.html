@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesion</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <meta name="google-signin-client_id" content="1000678377123-ca5p4oe2epfbajoqc9ik2jvv6gfcb2t4.apps.googleusercontent.com">
+
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="Inicio-de-sesion">
+        <div class="encabezado">
+            <header>Bienvenido</header>
+            <p>Nos alegra tenerte con nosotros nuevamente!</p>
+        </div>
+        <div class="input-box">
+            <input type="text" class="input-field" id="correo" autocomplete="off" required>
+            <label for="correo">Correo o Telefono</label>
+        </div>
+        <div class="input-box">
+            <input type="password" class="input-field" id="password" autocomplete="off" required>
+            <label for="password">Contraseña</label>
+        </div>
+        <div class="olvidar">
+            <section>
+                <input type="checkbox" id="check">
+                <label for="check">Recordarme</label>
+            </section>
+            <section>
+                <a href="#" class="recuperar">Recuperar Contraseña</a>
+            </section>
+        </div>
+        <div class="input-box">
+            <input type="submit" class="input-submit" value="Iniciar Sesion">
+        </div>
+        <div class="division">
+            <hr>
+            <p class="O">O</p>
+        </div>
+        <div class="inicio-social">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <button class="input-facebook" onclick="customFacebookLogin()">
+                <img src="facebook.png" alt="">
+            </button>            
+        </div>
+        <div id="signinDiv"></div>
+        <div class="iniciar-sesion">
+            <p>No tienen una cuenta? <a href="#">Crear Cuenta</a></p>
+        </div>
+        <script>
+            function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                console.log('Name: ' + profile.getName());
+                console.log('Image URL: ' + profile.getImageUrl());
+                console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+                console.log(id_token);    
+            }
+        </script>
+    </div>
+</body>
+</html>
