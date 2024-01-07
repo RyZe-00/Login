@@ -56,12 +56,30 @@ FB.api('/me', function(response) {
 
 
 //GOOGLE
+
 function onSuccess(googleUser) {
   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+  var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId());
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
+
+    // Mostrar los datos en una ventana
+    var userData = {
+        id: profile.getId(),
+        name: profile.getName(),
+        imageUrl: profile.getImageUrl(),
+        email: profile.getEmail()
+    };
+
+    var userDataString = JSON.stringify(userData, null, 2);
+    document.getElementById('google-data').innerText = userDataString;
 }
 
 function onFailure(error) {
   console.log(error);
+  alert("Fallo")
 }
 
 function renderButton() {
